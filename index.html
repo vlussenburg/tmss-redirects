@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="icon" href="https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/production/podcast_uploaded_nologo400/36533782/36533782-1677951548146-4605ecc9b79ad.jpg" />
   <title>The Meaningful Shit Show</title>
+  <link rel="icon" href="https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/production/podcast_uploaded_nologo400/36533782/36533782-1677951548146-4605ecc9b79ad.jpg" />
   <style>
     body {
       font-family: system-ui, sans-serif;
@@ -15,7 +15,14 @@
     }
     h1 {
       text-align: center;
+      margin-bottom: 0.5rem;
+    }
+    p.tagline {
+      text-align: center;
+      margin-top: 0;
       margin-bottom: 2rem;
+      font-size: 1rem;
+      color: #444;
     }
     ul {
       list-style: none;
@@ -38,41 +45,59 @@
     a:hover {
       background: #ddd;
     }
-    p a {
-      padding: 0.25rem 0.5rem;
-      margin: 0 0.25rem;
-      background: #eee;
-      border-radius: 6px;
+    .platforms {
+      margin-top: 3rem;
+      text-align: center;
+    }
+    .platforms p {
+      margin-bottom: 0.5rem;
+    }
+    .platform-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    .platform-link {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
       text-decoration: none;
-      color: #111;
+      font-size: 0.9rem;
+      font-weight: 500;
       transition: background 0.2s ease;
     }
-    p a:hover {
-      background: #ccc;
-    }
+    .spotify { background: #1DB954; color: white; }
+    .spotify:hover { background: #169c44; }
+    .youtube { background: #FF0000; color: white; }
+    .youtube:hover { background: #cc0000; }
+    .apple { background: #000; color: white; }
+    .apple:hover { background: #333; }
+    .instagram { background: #E1306C; color: white; }
+    .instagram:hover { background: #b91e58; }
+    .tiktok { background: #010101; color: #fff; }
+    .tiktok:hover { background: #333; }
   </style>
-</head>
-  
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-NWYRMBC03R"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-NWYRMBC03R');
-</script>
-  
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NWYRMBC03R"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-NWYRMBC03R');
+  </script>
+</head>
+
 <body>
-  <main style="text-align: center; font-family: sans-serif; padding: 2rem;">
+  <main style="text-align: center;">
     <img src="https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/production/podcast_uploaded_nologo400/36533782/36533782-1677951548146-4605ecc9b79ad.jpg"
-       alt="Podcast Cover"
-       style="max-width: 100px; border-radius: 16px; margin: 1rem 0;" />
+         alt="Podcast Cover"
+         style="max-width: 100px; border-radius: 16px; margin: 1rem 0;" />
     
     <h1>🎙️ The Meaningful Shit Show</h1>
-  
-    <p>Deep convos. Sharp insights. No fluff.</p>
-  
+    <p class="tagline">Deep convos. Sharp insights. No fluff.</p>
+
     <ul>
       <li><a href="/1">🎯 The Value of Values | Ep. 1</a></li>
       <li><a href="/2">🧠 How do beliefs work? | Ep. 2</a></li>
@@ -95,14 +120,17 @@
       <li><a href="/19">🧘‍♀️ Beyond the Buzzword: Mindfulness That Actually Makes Sense 🧠✨ | Ep. 19</a></li>
       <li><a href="/20">🪨 The Gift of Rock Bottom | Kierkegaard, Nihilism & Radical Acceptance | Ep. 20</a></li>
     </ul>
-    
-    <p>Or find us on:
-      <a href="/spotify">Spotify</a> •
-      <a href="/youtube">YouTube</a> •
-      <a href="/apple">Apple Podcasts</a> •
-      <a href="/instagram">Instagram</a> •
-      <a href="/tiktok">Tiktok</a>
-    </p>
+
+    <div class="platforms">
+      <p>Or find us on:</p>
+      <div class="platform-links">
+        <a href="/spotify" class="platform-link spotify">🎧 Spotify</a>
+        <a href="/youtube" class="platform-link youtube">▶️ YouTube</a>
+        <a href="/apple" class="platform-link apple">🍏 Apple Podcasts</a>
+        <a href="/instagram" class="platform-link instagram">📸 Instagram</a>
+        <a href="/tiktok" class="platform-link tiktok">🎵 TikTok</a>
+      </div>
+    </div>
   </main>
 </body>
 </html>
