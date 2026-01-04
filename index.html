@@ -6,6 +6,10 @@
   <title>The Meaningful Shit Show</title>
   <link rel="icon" href="https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/production/podcast_uploaded_nologo400/36533782/36533782-1677951548146-4605ecc9b79ad.jpg" />
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: system-ui, sans-serif;
       margin: 0;
@@ -89,6 +93,18 @@
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
 
+    .episode-card:target {
+      background: #fff3cd;
+      border: 2px solid #ffc107;
+      box-shadow: 0 8px 24px rgba(255, 193, 7, 0.3);
+      animation: highlight-pulse 1s ease-out;
+    }
+
+    @keyframes highlight-pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.02); }
+    }
+
     /* Episode Header */
     .episode-header {
       display: flex;
@@ -167,6 +183,31 @@
       height: 20px;
       width: 20px;
       vertical-align: middle;
+    }
+
+    /* Colored Platform Icons */
+    .platform-spotify {
+      filter: invert(68%) sepia(52%) saturate(1595%) hue-rotate(87deg) brightness(93%) contrast(86%);
+    }
+
+    .platform-youtube {
+      filter: invert(19%) sepia(98%) saturate(7497%) hue-rotate(356deg) brightness(99%) contrast(117%);
+    }
+
+    .platform-apple {
+      filter: invert(0%);
+    }
+
+    .platform-instagram {
+      filter: invert(42%) sepia(79%) saturate(2951%) hue-rotate(325deg) brightness(97%) contrast(88%);
+    }
+
+    .platform-tiktok {
+      filter: invert(0%);
+    }
+
+    .platform-substack {
+      filter: invert(52%) sepia(75%) saturate(2799%) hue-rotate(352deg) brightness(102%) contrast(101%);
     }
 
     /* Loading & Error States */

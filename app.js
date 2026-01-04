@@ -48,6 +48,7 @@ function createPlatformLinks(links) {
       img.src = PLATFORM_ICONS[platform];
       img.alt = platform;
       img.height = 20;
+      img.className = `platform-icon platform-${platform}`;
 
       link.appendChild(img);
       linksContainer.appendChild(link);
@@ -62,6 +63,7 @@ function createPlatformLinks(links) {
 function createEpisodeCard(episode) {
   const article = document.createElement('article');
   article.className = 'episode-card';
+  article.id = `ep${episode.episode}`;
 
   // Episode header (icon + metadata)
   const header = document.createElement('div');
