@@ -156,6 +156,29 @@ function renderEpisodes(episodes) {
     const card = createEpisodeCard(episode);
     container.appendChild(card);
   });
+
+  // Handle hash navigation after cards are rendered
+  if (window.location.hash) {
+    const targetId = window.location.hash.substring(1); // Remove the #
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      // Small delay to ensure layout is complete
+      setTimeout(() => {
+        // Remove highlight from any previously highlighted cards
+        document.querySelectorAll('.episode-card.highlighted').forEach(card => {
+          card.classList.remove('highlighted');
+        });
+
+        // Add highlight class
+        targetElement.classList.add('highlighted');
+
+        // Scroll with offset for better positioning
+        const yOffset = -80; // Offset from top
+        const y = targetElement.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }, 100);
+    }
+  }
 }
 
 // Initialize the application
