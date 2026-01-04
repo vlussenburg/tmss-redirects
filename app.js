@@ -1,6 +1,23 @@
 // The Meaningful Shit Show - Episode Renderer
 // Fetches episodes.json and dynamically renders episode cards
 
+// UTM Parameters Configuration
+const UTM_PARAMS = {
+  source: 'tms.show',
+  medium: 'episode-card',
+  campaign: 'podcast-discovery'
+};
+
+// Helper function to add UTM parameters to URLs
+function addUTMParams(url) {
+  if (!url) return url;
+
+  const utmString = `utm_source=${UTM_PARAMS.source}&utm_medium=${UTM_PARAMS.medium}&utm_campaign=${UTM_PARAMS.campaign}`;
+  const separator = url.includes('?') ? '&' : '?';
+
+  return `${url}${separator}${utmString}`;
+}
+
 // Platform icon URLs from simple-icons CDN
 const PLATFORM_ICONS = {
   youtube: 'https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/youtube.svg',
@@ -39,7 +56,7 @@ function createPlatformLinks(links) {
   Object.entries(links).forEach(([platform, url]) => {
     if (url && PLATFORM_ICONS[platform]) {
       const link = document.createElement('a');
-      link.href = url;
+      link.href = addUTMParams(url);
       link.title = platform.charAt(0).toUpperCase() + platform.slice(1);
       link.target = '_blank';
       link.rel = 'noopener noreferrer';
