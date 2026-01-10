@@ -9,21 +9,12 @@ eleventyComputed:
   title: "{{ episode.title }} | Episode {{ episode.episode }}"
   description: "{{ episode.description | truncate(160) }}"
   canonical: "{{ site.url }}/{{ episode.episode }}"
+  ogType: "article"
+  ogTitle: "{{ episode.icon }} {{ episode.title }}"
+  ogDescription: "{{ episode.description | truncate(160) }}"
+  ogUrl: "{{ site.url }}/{{ episode.episode }}"
+  ogImage: "{% if episode.links.youtube %}https://img.youtube.com/vi/{{ episode.links.youtube | youtubeId }}/maxresdefault.jpg{% else %}{{ site.image }}{% endif %}"
 ---
-
-{% block meta %}
-<meta property="og:type" content="article">
-<meta property="og:title" content="{{ episode.icon }} {{ episode.title }}">
-<meta property="og:description" content="{{ episode.description | truncate(160) }}">
-<meta property="og:url" content="{{ site.url }}/{{ episode.episode }}">
-<meta property="og:image" content="{% if episode.links.youtube %}https://img.youtube.com/vi/{{ episode.links.youtube | youtubeId }}/maxresdefault.jpg{% else %}{{ site.image }}{% endif %}">
-<meta property="og:site_name" content="{{ site.name }}">
-
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="{{ episode.icon }} {{ episode.title }}">
-<meta name="twitter:description" content="{{ episode.description | truncate(160) }}">
-<meta name="twitter:image" content="{% if episode.links.youtube %}https://img.youtube.com/vi/{{ episode.links.youtube | youtubeId }}/maxresdefault.jpg{% else %}{{ site.image }}{% endif %}">
-{% endblock %}
 
 <main class="episode-page-main">
   {% include "episode-card.njk" %}
