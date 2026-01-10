@@ -4,11 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>{{ title | safe }} | {{ site.name }}</title>
+  <title>{% if title %}{{ title | safe }} | {% endif %}{{ site.name }}</title>
   <meta name="description" content="{{ description | default(site.description) }}">
   {% if canonical %}<link rel="canonical" href="{{ canonical }}">{% endif %}
 
-  {% block meta %}{% endblock %}
+  {% if ogType %}
+  <meta property="og:type" content="{{ ogType }}">
+  <meta property="og:title" content="{{ ogTitle | default(title) }}">
+  <meta property="og:description" content="{{ ogDescription | default(description) | default(site.description) }}">
+  <meta property="og:url" content="{{ ogUrl | default(canonical) | default(site.url) }}">
+  <meta property="og:image" content="{{ ogImage | default(site.image) }}">
+  {% if ogImageWidth %}<meta property="og:image:width" content="{{ ogImageWidth }}">{% endif %}
+  {% if ogImageHeight %}<meta property="og:image:height" content="{{ ogImageHeight }}">{% endif %}
+  {% if ogImageType %}<meta property="og:image:type" content="{{ ogImageType }}">{% endif %}
+  <meta property="og:site_name" content="{{ site.name }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ twitterTitle | default(ogTitle) | default(title) }}">
+  <meta name="twitter:description" content="{{ twitterDescription | default(ogDescription) | default(description) | default(site.description) }}">
+  <meta name="twitter:image" content="{{ twitterImage | default(ogImage) | default(site.image) }}">
+  {% endif %}
+  {% if appleMobileWebAppTitle %}<meta name="apple-mobile-web-app-title" content="{{ appleMobileWebAppTitle }}">{% endif %}
 
   <link rel="icon" href="{{ site.image }}">
   <link rel="stylesheet" href="/styles.css">
@@ -23,7 +38,5 @@
 </head>
 <body{% if bodyClass %} class="{{ bodyClass }}"{% endif %}>
   {{ content | safe }}
-
-  {% block scripts %}{% endblock %}
 </body>
 </html>
