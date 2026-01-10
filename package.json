@@ -1,0 +1,13 @@
+{
+  "name": "tmss-redirects",
+  "version": "1.0.0",
+  "description": "The Meaningful Shit Show - Podcast Landing Pages",
+  "private": true,
+  "scripts": {
+    "build": "eleventy",
+    "dev": "eleventy --serve"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  }
+}

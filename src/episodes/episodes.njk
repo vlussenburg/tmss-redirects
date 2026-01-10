@@ -1,0 +1,66 @@
+---
+pagination:
+  data: episodes.episodes
+  size: 1
+  alias: episode
+permalink: "/{{ episode.episode }}/"
+layout: base.njk
+eleventyComputed:
+  title: "{{ episode.title }} | Episode {{ episode.episode }}"
+  description: "{{ episode.description | truncate(160) }}"
+  canonical: "{{ site.url }}/{{ episode.episode }}"
+---
+
+{% block meta %}
+<meta property="og:type" content="article">
+<meta property="og:title" content="{{ episode.icon }} {{ episode.title }}">
+<meta property="og:description" content="{{ episode.description | truncate(160) }}">
+<meta property="og:url" content="{{ site.url }}/{{ episode.episode }}">
+<meta property="og:image" content="{% if episode.links.youtube %}https://img.youtube.com/vi/{{ episode.links.youtube | youtubeId }}/maxresdefault.jpg{% else %}{{ site.image }}{% endif %}">
+<meta property="og:site_name" content="{{ site.name }}">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ episode.icon }} {{ episode.title }}">
+<meta name="twitter:description" content="{{ episode.description | truncate(160) }}">
+<meta name="twitter:image" content="{% if episode.links.youtube %}https://img.youtube.com/vi/{{ episode.links.youtube | youtubeId }}/maxresdefault.jpg{% else %}{{ site.image }}{% endif %}">
+{% endblock %}
+
+<main class="episode-page-main">
+  {% include "episode-card.njk" %}
+
+  <nav class="episode-nav">
+    {% if episode.episode > 1 %}
+    <a href="/{{ episode.episode - 1 }}/" class="nav-prev">← Episode {{ episode.episode - 1 }}</a>
+    {% else %}
+    <span class="nav-prev"></span>
+    {% endif %}
+
+    <a href="/" class="nav-all">All episodes</a>
+
+    {% if episode.episode < episodes.episodes.length %}
+    <a href="/{{ episode.episode + 1 }}/" class="nav-next">Episode {{ episode.episode + 1 }} →</a>
+    {% else %}
+    <span class="nav-next"></span>
+    {% endif %}
+  </nav>
+</main>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "PodcastEpisode",
+  "name": "{{ episode.title | jsonEscape }}",
+  "description": "{{ episode.description | jsonEscape }}",
+  "episodeNumber": {{ episode.episode }},
+  "url": "{{ site.url }}/{{ episode.episode }}",
+  "partOfSeries": {
+    "@type": "PodcastSeries",
+    "@id": "{{ site.url }}/#podcast",
+    "name": "{{ site.name }}"
+  }{% if episode.links | hasValues %},
+  "sameAs": [
+    {% set comma = joiner(", ") %}
+    {% for platform, url in episode.links %}{% if url %}{{ comma() }}"{{ url }}"{% endif %}{% endfor %}
+  ]{% endif %}
+}
+</script>

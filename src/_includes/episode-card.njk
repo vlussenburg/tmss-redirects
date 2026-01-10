@@ -1,0 +1,30 @@
+<article class="episode-card">
+  <div class="episode-content">
+    {% if episode.links.youtube %}
+    <a href="{{ episode.links.youtube | addUtm(episode.episode, 'youtube-thumbnail') }}" class="episode-thumbnail" target="_blank" rel="noopener noreferrer">
+      <img src="https://img.youtube.com/vi/{{ episode.links.youtube | youtubeId }}/sddefault.jpg" alt="{{ episode.title }}" loading="lazy">
+      <span class="play-overlay">
+        <span class="platform-icon platform-youtube"></span>
+      </span>
+    </a>
+    {% endif %}
+    <a href="/{{ episode.episode }}/" class="episode-info">
+      <span class="episode-number">Episode {{ episode.episode }}</span>
+      <h2 class="episode-title">{{ episode.title }}</h2>
+      {% if episode.description %}
+      <p class="episode-description">{{ episode.description }}</p>
+      {% endif %}
+    </a>
+  </div>
+  {% if episode.links %}
+  <div class="episode-links">
+    {% for platform, url in episode.links %}
+      {% if url and platform in site.platforms %}
+        <a href="{{ url | addUtm(episode.episode, 'episode-card') }}" title="{{ platform | capitalize }}" target="_blank" rel="noopener noreferrer">
+          <span class="platform-icon platform-{{ platform }}"></span>
+        </a>
+      {% endif %}
+    {% endfor %}
+  </div>
+  {% endif %}
+</article>
