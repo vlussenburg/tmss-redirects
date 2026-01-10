@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>{{ title | safe }} | {{ site.name }}</title>
+  <meta name="description" content="{{ description | default(site.description) }}">
+  {% if canonical %}<link rel="canonical" href="{{ canonical }}">{% endif %}
+
+  {% block meta %}{% endblock %}
+
+  <link rel="icon" href="{{ site.image }}">
+  <link rel="stylesheet" href="/styles.css">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.ga }}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '{{ site.ga }}');
+  </script>
+</head>
+<body{% if bodyClass %} class="{{ bodyClass }}"{% endif %}>
+  {{ content | safe }}
+
+  {% block scripts %}{% endblock %}
+</body>
+</html>

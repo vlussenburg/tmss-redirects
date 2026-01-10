@@ -1,0 +1,57 @@
+---
+layout: base.njk
+title: ""
+permalink: /
+---
+
+{% block meta %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "PodcastSeries",
+  "@id": "{{ site.url }}/#podcast",
+  "name": "{{ site.name }}",
+  "description": "{{ site.description }}",
+  "url": "{{ site.url }}",
+  "image": "{{ site.image }}",
+  "author": {
+    "@type": "Organization",
+    "name": "{{ site.name }}"
+  },
+  "sameAs": [
+    "{{ site.social.apple }}",
+    "{{ site.social.youtube }}",
+    "{{ site.social.instagram }}",
+    "{{ site.social.tiktok }}",
+    "{{ site.social.substack }}",
+    "{{ site.social.spotify }}",
+    "https://open.spotify.com/show/5F5cCiSZ2vzQFjUVbWstyo",
+    "https://castbox.fm/channel/id5394785",
+    "https://www.iheart.com/podcast/116483492/",
+    "https://anchor.fm/s/da5ab718/podcast/rss",
+    "https://music.amazon.com/podcasts/0130f30f-e794-43c0-bbab-a582a6821305/the-meaningful-sht-show"
+  ]
+}
+</script>
+{% endblock %}
+
+<main>
+  <header class="site-header">
+    <img src="{{ site.image }}" alt="{{ site.name }}" class="site-logo" />
+    <div class="top-icons">
+      {% for platform, url in site.social %}
+        <a href="/{{ platform }}" title="{{ platform | capitalize }}">
+          <span class="platform-icon platform-{{ platform }}"></span>
+        </a>
+      {% endfor %}
+    </div>
+  </header>
+
+  <div id="episodes-container" class="episodes-grid">
+    {% for episode in episodes.episodes | sort(false, false, 'episode') | reverse %}
+    {% include "episode-card.njk" %}
+    {% endfor %}
+  </div>
+</main>
+
+
