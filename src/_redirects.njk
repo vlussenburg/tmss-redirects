@@ -1,3 +1,7 @@
+---
+permalink: /_redirects
+eleventyExcludeFromCollections: true
+---
 # Social platform redirects
 /spotify https://creators.spotify.com/pod/profile/themeaningfulshitshow/?utm_source=tms.show&utm_medium=header&utm_campaign=social-nav 301
 /youtube https://www.youtube.com/@themeaningfulshitshow/videos?utm_source=tms.show&utm_medium=header&utm_campaign=social-nav 301
@@ -6,5 +10,5 @@
 /apple https://podcasts.apple.com/us/podcast/the-meaningful-sht-show/id1662255856?utm_source=tms.show&utm_medium=header&utm_campaign=social-nav 301
 /substack https://themeaningfulshitshow.substack.com?utm_source=tms.show&utm_medium=header&utm_campaign=social-nav 301
 
-# Latest episode alias
-/latest /23/ 301
+# Latest episode alias (auto-updated)
+/latest /{{ episodes.episodes[0].episode }}/ 301
