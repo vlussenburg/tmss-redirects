@@ -2,17 +2,18 @@
 layout: base.njk
 title: ""
 permalink: /
-canonical: "https://themeaningfulshitshow.com/"
 ogType: "website"
 ogTitle: "The Meaningful Shit Show"
 ogDescription: "A podcast by Vincent exploring trauma, identity, psychology, and what it actually takes to live a meaningful life."
-ogUrl: "https://themeaningfulshitshow.com/"
-ogImage: "https://themeaningfulshitshow.com/tmss_logo_landscape_og.jpeg"
 ogImageWidth: "1200"
 ogImageHeight: "630"
 ogImageType: "image/jpeg"
 twitterDescription: "Trauma, identity, psychology, and the quiet work of becoming human."
 appleMobileWebAppTitle: "TMSS"
+eleventyComputed:
+  canonical: "{{ site.url }}/"
+  ogUrl: "{{ site.url }}/"
+  ogImage: "{{ site.url }}/tmss_logo_landscape_og.jpeg"
 ---
 
 <script type="application/ld+json">

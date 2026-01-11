@@ -8,11 +8,11 @@ layout: base.njk
 eleventyComputed:
   title: "{{ episode.title }} | Episode {{ episode.episode }}"
   description: "{{ episode.description | truncate(160) }}"
-  canonical: "{{ site.url }}/{{ episode.episode }}"
+  canonical: "{{ site.url }}/{{ episode.episode }}/"
   ogType: "article"
   ogTitle: "{{ episode.icon }} {{ episode.title }}"
   ogDescription: "{{ episode.description | truncate(160) }}"
-  ogUrl: "{{ site.url }}/{{ episode.episode }}"
+  ogUrl: "{{ site.url }}/{{ episode.episode }}/"
   ogImage: "{% if episode.links.youtube %}https://img.youtube.com/vi/{{ episode.links.youtube | youtubeId }}/maxresdefault.jpg{% else %}{{ site.image }}{% endif %}"
 ---
 
@@ -43,7 +43,7 @@ eleventyComputed:
   "name": "{{ episode.title | jsonEscape }}",
   "description": "{{ episode.description | jsonEscape }}",
   "episodeNumber": {{ episode.episode }},
-  "url": "{{ site.url }}/{{ episode.episode }}",
+  "url": "{{ site.url }}/{{ episode.episode }}/",
   "partOfSeries": {
     "@type": "PodcastSeries",
     "@id": "{{ site.url }}/#podcast",
