@@ -4,3 +4,9 @@
 
 [build.environment]
   NODE_VERSION = "18"
+
+[[redirects]]
+  from = "https://tms.show/*"
+  to = "https://themeaningfulshitshow.com/:splat"
+  status = 301
+  force = true
