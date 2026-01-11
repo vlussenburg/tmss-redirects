@@ -1,7 +1,6 @@
 module.exports = function(eleventyConfig) {
   // Copy static assets
-  eleventyConfig.addPassthroughCopy("src/styles.css");
-  eleventyConfig.addPassthroughCopy("src/_redirects");
+  eleventyConfig.addPassthroughCopy({ "public": "/" });
 
   // Extract YouTube video ID from URL
   eleventyConfig.addFilter("youtubeId", function(url) {
