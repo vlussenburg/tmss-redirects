@@ -5,8 +5,16 @@
 [build.environment]
   NODE_VERSION = "18"
 
+# tms.show redirects - paths with trailing slash (preserve slash)
+[[redirects]]
+  from = "https://tms.show/*/"
+  to = "https://themeaningfulshitshow.com/:splat/"
+  status = 301
+  force = true
+
+# tms.show redirects - paths without trailing slash (add slash for WhatsApp preview compatibility)
 [[redirects]]
   from = "https://tms.show/*"
-  to = "https://themeaningfulshitshow.com/:splat"
+  to = "https://themeaningfulshitshow.com/:splat/"
   status = 301
   force = true
