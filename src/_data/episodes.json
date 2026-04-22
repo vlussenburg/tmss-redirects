@@ -1,6 +1,20 @@
 {
   "episodes": [
     {
+      "episode": 24,
+      "title": "I Said My Worst Secret Out Loud. Here's What Happened.",
+      "description": "Shame is the fear that if people knew, they would leave — and hiding it carries a body count. This episode breaks down what DBT actually says about shame: Emotion Regulation Handout 11 and its two decisive questions — is the shame justified, and is the guilt justified? Covers the difference between guilt and shame, how guilt feeds shame, what unjustified shame costs, and opposite action as the antidote: making it public with the right people. References Brené Brown on empathy as the cure, and includes a personal story shared only with a handful of people.",
+      "icon": "🫥",
+      "links": {
+        "youtube": "https://youtu.be/DntY-y9n_gc",
+        "spotify": "https://open.spotify.com/episode/75ulprtzMkUl7n5zYqu2go?si=ACR9D2mKSoKbTsfHlHGyiQ",
+        "apple": null,
+        "substack": null,
+        "instagram": null,
+        "tiktok": null
+      }
+    },
+    {
       "episode": 23,
       "title": "Trauma Wasn't the Problem — Survival Was",
       "description": "\"Trauma is not pathology. It is biology.\" This episode maps early loss and survival strategies onto neuroscience of trauma, attachment, and addiction. Explores betrayal trauma, dissociation, addiction as regulation, post-traumatic growth, and integration as moving from fragmentation to coherence. Uses the \"Green Square/Red Circle\" framework and references kintsugi as healing without erasing the past.",
