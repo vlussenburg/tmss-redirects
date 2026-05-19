@@ -2,7 +2,7 @@
   <div class="episode-content">
     {% if episode.links.youtube %}
     <a href="{{ episode.links.youtube | addUtm(episode.episode, 'youtube-thumbnail') }}" class="episode-thumbnail" target="_blank" rel="noopener noreferrer">
-      <img src="https://img.youtube.com/vi/{{ episode.links.youtube | youtubeId }}/sddefault.jpg" alt="{{ episode.title }}" loading="lazy">
+      <img src="https://img.youtube.com/vi/{{ episode.links.youtube | youtubeId }}/maxresdefault.jpg" onload="if(this.naturalWidth<200)this.src='https://img.youtube.com/vi/{{ episode.links.youtube | youtubeId }}/mqdefault.jpg'" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/{{ episode.links.youtube | youtubeId }}/mqdefault.jpg'" alt="{{ episode.title }}" loading="lazy">
       <span class="play-overlay">
         <span class="platform-icon platform-youtube"></span>
       </span>
