@@ -51,6 +51,12 @@ module.exports = function(eleventyConfig) {
     return str.charAt(0).toUpperCase() + str.slice(1);
   });
 
+  // Split a blank-line-separated transcript into an array of paragraphs
+  eleventyConfig.addFilter("paragraphs", function(text) {
+    if (!text) return [];
+    return text.split(/\n\s*\n/).map(p => p.trim()).filter(Boolean);
+  });
+
   return {
     dir: {
       input: "src",
