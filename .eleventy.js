@@ -54,7 +54,7 @@ module.exports = function(eleventyConfig) {
   // Split a blank-line-separated transcript into an array of paragraphs
   eleventyConfig.addFilter("paragraphs", function(text) {
     if (!text) return [];
-    return text.split(/\n\s*\n/).map(p => p.trim()).filter(Boolean);
+    return text.replace(/\r\n/g, "\n").split(/\n\s*\n/).map(p => p.trim()).filter(Boolean);
   });
 
   return {
