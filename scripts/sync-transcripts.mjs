@@ -48,14 +48,45 @@ function fromItt(raw) {
   return cleanWhitespace(cues.join(" "));
 }
 
-// Break a long unbroken transcript into readable paragraphs of a few
-// sentences each, since source transcripts have no paragraph breaks at all.
-function toParagraphs(text, sentencesPerParagraph = 5) {
-  const sentences = text.match(/[^.!?]+[.!?]+(?=\s|$)|[^.!?]+$/g) || [text];
+// Break a long unbroken transcript into readable paragraphs of roughly
+// targetWords each, since source transcripts have no paragraph breaks at all.
+//
+// Uses String.split (not match/exec) so it is lossless by construction: split
+// always partitions the whole string, so a stray mid-word period (e.g. in
+// "mindtools.com", not followed by whitespace) just fails to act as a split
+// point instead of derailing a greedy backtracking match across the rest of
+// the text and silently dropping everything before the next "clean" period.
+function toParagraphs(text, targetWords = 70) {
+  const sentences = text.split(/(?<=[.!?])\s+/).filter(Boolean);
   const paragraphs = [];
-  for (let i = 0; i < sentences.length; i += sentencesPerParagraph) {
-    paragraphs.push(sentences.slice(i, i + sentencesPerParagraph).join(" ").trim());
+  let current = [];
+  let currentWords = 0;
+
+  const flush = () => {
+    if (current.length) paragraphs.push(current.join(" "));
+    current = [];
+    currentWords = 0;
+  };
+
+  for (const sentence of sentences) {
+    const wordCount = sentence.split(/\s+/).filter(Boolean).length;
+    // Auto-captions have almost no punctuation, so a "sentence" here can be
+    // the entire transcript. Hard-chunk oversized ones by word count so we
+    // still get readable paragraphs instead of one giant wall of text.
+    if (wordCount > targetWords * 2) {
+      flush();
+      const words = sentence.split(/\s+/).filter(Boolean);
+      for (let i = 0; i < words.length; i += targetWords) {
+        paragraphs.push(words.slice(i, i + targetWords).join(" "));
+      }
+      continue;
+    }
+    current.push(sentence);
+    currentWords += wordCount;
+    if (currentWords >= targetWords) flush();
   }
+  flush();
+
   return paragraphs.filter(Boolean).join("\n\n");
 }
 
