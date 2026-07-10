@@ -19,6 +19,18 @@ eleventyComputed:
 <main class="episode-page-main">
   {% include "episode-card.njk" %}
 
+  {% set transcript = transcripts[episode.episode] %}
+  {% if transcript %}
+  <details class="transcript">
+    <summary>Read full transcript</summary>
+    <div class="transcript-body">
+      {% for paragraph in transcript | paragraphs %}
+      <p>{{ paragraph }}</p>
+      {% endfor %}
+    </div>
+  </details>
+  {% endif %}
+
   <nav class="episode-nav">
     {% if episode.episode > 1 %}
     <a href="/{{ episode.episode - 1 }}/" class="nav-prev">← Episode {{ episode.episode - 1 }}</a>

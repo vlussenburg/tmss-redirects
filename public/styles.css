@@ -302,6 +302,63 @@ main {
   flex-shrink: 0;
 }
 
+/* Transcript */
+.transcript {
+  background: #f4f4f4;
+  border-radius: 12px;
+  margin-top: 1rem;
+  text-align: left;
+}
+
+.transcript summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #444;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.transcript summary::-webkit-details-marker {
+  display: none;
+}
+
+.transcript summary::after {
+  content: "+";
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: #666;
+  transition: transform 0.2s ease;
+}
+
+.transcript[open] summary::after {
+  transform: rotate(45deg);
+}
+
+.transcript summary:hover {
+  color: #111;
+}
+
+.transcript-body {
+  padding: 0 1.25rem 1.25rem;
+  color: #444;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.transcript-body p {
+  margin: 0 0 1em 0;
+}
+
+.transcript-body p:last-child {
+  margin-bottom: 0;
+}
+
 /* Responsive */
 @media (max-width: 640px) {
   body {
