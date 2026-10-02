@@ -1,2 +1,1 @@
 ^file:///.*\/(apple|instagram|spotify|substack|youtube)$
-^https://(open\.substack\.com|themeaningfulshitshow\.substack\.com)/
