@@ -1,0 +1,6 @@
+# Substack may deny automated requests even when the page exists.
+[hosts."open.substack.com"]
+accept = ["100..=103", "200..=299", "403"]
+
+[hosts."themeaningfulshitshow.substack.com"]
+accept = ["100..=103", "200..=299", "403"]
