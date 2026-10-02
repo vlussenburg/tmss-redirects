@@ -9,7 +9,7 @@
     </a>
     {% endif %}
     <a href="/{{ episode.episode }}/" class="episode-info">
-      <span class="episode-number">Episode {{ episode.episode }}</span>
+      <span class="episode-number">Episode {{ episode.episode }} <span class="episode-icon">{{ episode.icon }}</span></span>
       <h2 class="episode-title">{{ episode.title }}</h2>
       {% if episode.description %}
       <p class="episode-description">{{ episode.description }}</p>
