@@ -1,5 +1,5 @@
-const fs = require('fs')
-const path = require('path')
+const fs = require('node:fs')
+const path = require('node:path')
 
 // Maps episode number -> transcript text. Files are manually maintained
 // plain text, one per episode, in ./transcripts/<episode>.txt.
