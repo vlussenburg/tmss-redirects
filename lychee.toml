@@ -1,6 +1,0 @@
-# Keep these URLs in the scan; accept their 403 response from GitHub Actions.
-[hosts."open.substack.com"]
-accept = ["200..=299", "403"]
-
-[hosts."themeaningfulshitshow.substack.com"]
-accept = ["200..=299", "403"]
