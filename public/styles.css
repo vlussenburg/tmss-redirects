@@ -25,6 +25,11 @@ a:hover {
   background: #ddd;
 }
 
+a:focus-visible {
+  outline: 3px solid #005fcc;
+  outline-offset: 3px;
+}
+
 /* Site Header */
 main {
   text-align: center;
@@ -44,13 +49,22 @@ main {
   border-radius: 12px;
 }
 
+.site-title {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
 .top-icons {
   display: flex;
   gap: 0.5rem;
 }
 
 .top-icons a {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
   padding: 0;
   background: transparent;
   transition: transform 0.2s ease;
@@ -62,8 +76,8 @@ main {
 }
 
 .top-icons .platform-icon {
-  width: 22px;
-  height: 22px;
+  width: 24px;
+  height: 24px;
 }
 
 /* Episodes Container */
@@ -183,6 +197,10 @@ main {
 
 .episode-links a {
   display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
   padding: 0;
   background: transparent;
   transition: transform 0.2s ease;
