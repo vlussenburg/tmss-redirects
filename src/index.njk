@@ -47,9 +47,10 @@ eleventyComputed:
 <main>
   <header class="site-header">
     <img src="{{ site.image }}" alt="{{ site.name }}" class="site-logo" />
+    <h1 class="site-title">{{ site.name }}</h1>
     <div class="top-icons">
       {% for platform, url in site.social %}
-        <a href="/{{ platform }}" title="{{ platform | capitalize }}">
+        <a href="/{{ platform }}" title="{{ platform | capitalize }}" aria-label="Visit {{ platform | capitalize }}">
           <span class="platform-icon platform-{{ platform }}"></span>
         </a>
       {% endfor %}
@@ -62,5 +63,4 @@ eleventyComputed:
     {% endfor %}
   </div>
 </main>
-
 

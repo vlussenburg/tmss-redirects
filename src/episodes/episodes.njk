@@ -5,6 +5,7 @@ pagination:
   alias: episode
 permalink: "/{{ episode.episode }}/"
 layout: base.njk
+episodePage: true
 eleventyComputed:
   title: "{{ episode.title }} | Episode {{ episode.episode }}"
   description: "{{ episode.description | truncate(160) }}"
@@ -31,7 +32,7 @@ eleventyComputed:
   </details>
   {% endif %}
 
-  <nav class="episode-nav">
+  <nav class="episode-nav" aria-label="Episode navigation">
     {% if episode.episode > 1 %}
     <a href="/{{ episode.episode - 1 }}/" class="nav-prev">← Episode {{ episode.episode - 1 }}</a>
     {% else %}
