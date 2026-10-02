@@ -1,1 +1,3 @@
 ^file:///.*\/(apple|instagram|spotify|substack|youtube)$
+# Instagram rate-limits CI and returns HTTP 200 for missing profiles and posts.
+^https?://(www\.)?instagram\.com(/|$)
