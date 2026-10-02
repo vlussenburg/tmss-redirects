@@ -14,7 +14,7 @@ eleventyComputed:
   ogTitle: "{{ episode.icon }} {{ episode.title }}"
   ogDescription: "{{ episode.description | truncate(160) }}"
   ogUrl: "{{ site.url }}/{{ episode.episode }}/"
-  ogImage: "{% if episode.links.youtube %}https://img.youtube.com/vi/{{ episode.links.youtube | youtubeId }}/maxresdefault.jpg{% else %}{{ site.image }}{% endif %}"
+  ogImage: "{{ episode.socialImage }}"
 ---
 
 <main class="episode-page-main">

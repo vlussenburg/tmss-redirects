@@ -70,9 +70,13 @@ main {
   transition: transform 0.2s ease;
 }
 
-.top-icons a:hover {
-  transform: scale(1.1);
-  background: transparent;
+.platform-icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
 }
 
 .top-icons .platform-icon {
@@ -133,9 +137,9 @@ main {
 .play-overlay .platform-icon {
   width: 48px;
   height: 48px;
-  background-color: #FF0000;
+  background-color: #f00;
   opacity: 0.7;
-  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
+  filter: drop-shadow(0 2px 8px rgb(0 0 0 / 30%));
   transition: all 0.2s ease;
 }
 
@@ -179,7 +183,7 @@ main {
 
 /* Episode Description */
 .episode-description {
-  margin: 0.5rem 0 0 0;
+  margin: 0.5rem 0 0;
   color: #444;
   line-height: 1.5;
   font-size: 0.875rem;
@@ -206,58 +210,35 @@ main {
   transition: transform 0.2s ease;
 }
 
-.episode-links a:hover {
-  transform: scale(1.15);
-  background: transparent;
-}
-
 /* Platform Icons */
-.platform-icon {
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  -webkit-mask-size: contain;
-  mask-size: contain;
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  -webkit-mask-position: center;
-  mask-position: center;
-}
-
 .platform-youtube {
-  -webkit-mask-image: url('https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/youtube.svg');
   mask-image: url('https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/youtube.svg');
-  background-color: #FF0000;
+  background-color: #f00;
 }
 
 .platform-spotify {
-  -webkit-mask-image: url('https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/spotify.svg');
   mask-image: url('https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/spotify.svg');
-  background-color: #1DB954;
+  background-color: #1db954;
 }
 
 .platform-apple {
-  -webkit-mask-image: url('https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/applepodcasts.svg');
   mask-image: url('https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/applepodcasts.svg');
-  background-color: #9933CC;
+  background-color: #93c;
 }
 
 .platform-instagram {
-  -webkit-mask-image: url('https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/instagram.svg');
   mask-image: url('https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/instagram.svg');
-  background-color: #E4405F;
+  background-color: #e4405f;
 }
 
 .platform-tiktok {
-  -webkit-mask-image: url('https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/tiktok.svg');
   mask-image: url('https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/tiktok.svg');
-  background-color: #000000;
+  background-color: #000;
 }
 
 .platform-substack {
-  -webkit-mask-image: url('https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/substack.svg');
   mask-image: url('https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/substack.svg');
-  background-color: #FF6719;
+  background-color: #ff6719;
 }
 
 /* Loading & Error States */
@@ -291,7 +272,8 @@ main {
   gap: 1rem;
 }
 
-.episode-nav a, .episode-nav span {
+.episode-nav a,
+.episode-nav span {
   display: inline;
   padding: 0;
   background: transparent;
@@ -304,7 +286,13 @@ main {
   background: transparent;
 }
 
-.nav-prev, .nav-next {
+.episode-links a:hover {
+  transform: scale(1.15);
+  background: transparent;
+}
+
+.nav-prev,
+.nav-next {
   flex: 1;
 }
 
@@ -318,6 +306,11 @@ main {
 
 .nav-all {
   flex-shrink: 0;
+}
+
+.top-icons a:hover {
+  transform: scale(1.1);
+  background: transparent;
 }
 
 /* Transcript */
@@ -345,7 +338,7 @@ main {
 }
 
 .transcript summary::after {
-  content: "+";
+  content: '+';
   font-size: 1.25rem;
   font-weight: 400;
   color: #666;
@@ -370,7 +363,7 @@ main {
 }
 
 .transcript-body p {
-  margin: 0 0 1em 0;
+  margin: 0 0 1em;
 }
 
 .transcript-body p:last-child {
@@ -378,10 +371,11 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 640px) {
+@media (width <= 640px) {
   body {
     padding: 1rem;
   }
+
   .episode-title {
     font-size: 1rem;
   }
