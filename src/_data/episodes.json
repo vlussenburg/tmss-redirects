@@ -1,6 +1,21 @@
 {
   "episodes": [
     {
+      "episode": 27,
+      "socialImage": "https://img.youtube.com/vi/L8yB5K9GV98/maxresdefault.jpg",
+      "title": "The Story Behind the Life Compass Cards",
+      "description": "Life Compass Cards creator Joanne Steinwachs shares how the deck grew out of her work as a clinical social worker and ACT therapist. They discuss how the cards help people uncover personal values beneath inherited shoulds, what happens when people get stuck, and how to use a values sort to make choices that feel genuinely your own.",
+      "icon": "🃏",
+      "links": {
+        "youtube": "https://youtu.be/L8yB5K9GV98",
+        "spotify": null,
+        "apple": null,
+        "substack": null,
+        "instagram": null,
+        "tiktok": null
+      }
+    },
+    {
       "episode": 26,
       "socialImage": "https://img.youtube.com/vi/qfFp3buQfxo/maxresdefault.jpg",
       "title": "The Only Card Reading I Trust: Find Your Core Values",
