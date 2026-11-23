@@ -5,15 +5,15 @@ permalink: /
 ogType: "website"
 ogTitle: "The Meaningful Shit Show"
 ogDescription: "A podcast by Vincent exploring trauma, identity, psychology, and what it actually takes to live a meaningful life."
-ogImageWidth: "1200"
-ogImageHeight: "630"
+ogImageWidth: "1024"
+ogImageHeight: "1024"
 ogImageType: "image/jpeg"
 twitterDescription: "Trauma, identity, psychology, and the quiet work of becoming human."
 appleMobileWebAppTitle: "TMSS"
 eleventyComputed:
   canonical: "{{ site.url }}/"
   ogUrl: "{{ site.url }}/"
-  ogImage: "{{ site.url }}/tmss_logo_landscape_og.jpeg"
+  ogImage: "{{ site.image }}"
 ---
 
 <script type="application/ld+json">
@@ -63,4 +63,3 @@ eleventyComputed:
     {% endfor %}
   </div>
 </main>
-
